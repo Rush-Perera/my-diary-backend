@@ -123,4 +123,16 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Maintenance Token
+    |--------------------------------------------------------------------------
+    |
+    | This token is used to authenticate maintenance operations like cache
+    | clearing via URL. Set a secure random string in your .env file.
+    |
+    */
+
+    'maintenance_token' => env('MAINTENANCE_TOKEN', 'change-this-token'),
+
 ];
