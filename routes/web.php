@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Maintenance route to clear all caches
 Route::get('/maintenance/clear-cache/{token}', function ($token) {
     // Verify maintenance token for security
@@ -58,4 +54,9 @@ Route::get('/maintenance/clear-cache/{token}', function ($token) {
         ], 500);
     }
 });
+
+// Serve React SPA for all other routes
+Route::get('/{any?}', function () {
+    return view('app');
+})->where('any', '.*');
 
